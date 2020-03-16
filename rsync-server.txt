@@ -1,0 +1,4 @@
+#!/bin/bash
+echo $LINENO && find /backup -type -f -mtime +180 | xargs rm 2>/dev/null
+echo $LINENO && find /backup -type -f -name "finger*" | xargs md5sum -c >/backup/check.txt
+echo $LINENP && mail -s "服务器备份信息" 834555340@qq.com < /backup/check.txt 
